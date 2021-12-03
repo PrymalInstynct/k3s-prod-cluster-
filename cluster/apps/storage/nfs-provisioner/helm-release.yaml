@@ -24,7 +24,7 @@ spec:
     imagePullSecrets: []
     nfs:
       server: 10.10.1.30
-      path: /volume1/kubernetes-dev
+      path: /volume1/kubernetes-prod
       mountOptions:
       volumeName: nfs-subdir-external-provisioner-root
       reclaimPolicy: retain
