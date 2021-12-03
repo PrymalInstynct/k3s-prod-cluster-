@@ -50,11 +50,29 @@
       ],
       "datasourceTemplate": "helm"
     },
+    // regexManager to read and process Splunk Operator CRD's
+    {
+      "fileMatch": [
+        "cluster/crds/splunk/.+\\.yaml$"
+      ],
+      "matchStrings": [
+        "registryUrl=(?<registryUrl>.*?)\\/(?<depName>.*?)\\/releases\\/download\\/(?<currentValue>.*?)\\/"
+      ],
+      "datasourceTemplate": "github-releases"
+    },
   ],
   "packageRules": [
     // setup datasources
+    // global helm datasource settings
     {
       "matchDatasources": ["helm"],
+      "separateMinorPatch": true,
+      "ignoreDeprecated": true,
+      "automerge": true
+    },
+    // global github-release datasource settings
+    {
+      "matchDatasources": ["github-releases"],
       "separateMinorPatch": true,
       "ignoreDeprecated": true
     },
@@ -65,6 +83,7 @@
       "commitMessageTopic": "container image {{depName}}",
       "commitMessageExtra": "to {{#if isSingleVersion}}v{{{newVersion}}}{{else}}{{{newValue}}}{{/if}}",
       "matchUpdateTypes": ["major", "minor", "patch"],
+      "automerge": true
     },
     // add labels according to package and update types
     {
@@ -94,6 +113,21 @@
     },
     {
       "matchDatasources": ["helm"],
+      "matchUpdateTypes": ["patch"],
+      "labels": ["renovate/helm", "dep/patch"]
+    },
+    {
+      "matchDatasources": ["github-releases"],
+      "matchUpdateTypes": ["major"],
+      "labels": ["renovate/helm", "dep/major"]
+    },
+    {
+      "matchDatasources": ["github-releases"],
+      "matchUpdateTypes": ["minor"],
+      "labels": ["renovate/helm", "dep/minor"]
+    },
+    {
+      "matchDatasources": ["github-releases"],
       "matchUpdateTypes": ["patch"],
       "labels": ["renovate/helm", "dep/patch"]
     }

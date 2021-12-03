@@ -1,0 +1,122 @@
+---
+apiVersion: enterprise.splunk.com/v2
+kind: LicenseMaster
+metadata:
+  name: lm-dev
+  namespace: splunk-cluster-prod
+  finalizers:
+  - enterprise.splunk.com/delete-pvc
+spec:
+  clusterMasterRef:
+    name: cm-dev
+  resources:
+    requests:
+      memory: "512Mi"
+      cpu: "0.1"
+    limits:
+      memory: "4Gi"
+      cpu: "2"
+  etcVolumeStorageConfig:
+    storageClassName: longhorn
+    storageCapacity: 15Gi
+  varVolumeStorageConfig:
+    storageClassName: longhorn
+    storageCapacity: 25Gi
+  volumes:
+    - name: defaults
+      configMap:
+        name: splunk-cluster-defaults
+    - name: licenses
+      configMap:
+        name: splunk-licenses
+  licenseUrl: /mnt/licenses/enterprise.lic
+  defaultsUrl: /mnt/defaults/default.yml
+---
+apiVersion: enterprise.splunk.com/v2
+kind: ClusterMaster
+metadata:
+  name: cm-dev
+  namespace: splunk-cluster-prod
+  finalizers:
+  - enterprise.splunk.com/delete-pvc
+spec:
+  licenseMasterRef:
+    name: lm-dev
+  resources:
+    requests:
+      memory: "512Mi"
+      cpu: "0.1"
+    limits:
+      memory: "8Gi"
+      cpu: "4"
+  etcVolumeStorageConfig:
+    storageClassName: longhorn
+    storageCapacity: 15Gi
+  varVolumeStorageConfig:
+    storageClassName: longhorn
+    storageCapacity: 25Gi
+  volumes:
+    - name: defaults
+      configMap:
+        name: splunk-cluster-defaults
+  defaultsUrl: /tmp/defaults/default.yml
+---
+apiVersion: enterprise.splunk.com/v2
+kind: IndexerCluster
+metadata:
+  name: idx-dev
+  namespace: splunk-cluster-prod
+  finalizers:
+  - enterprise.splunk.com/delete-pvc
+spec:
+  clusterMasterRef:
+    name: cm-dev
+  replicas: 2
+  resources:
+    requests:
+      memory: "512Mi"
+      cpu: "0.1"
+    limits:
+      memory: "8Gi"
+      cpu: "4"
+  etcVolumeStorageConfig:
+    storageClassName: longhorn
+    storageCapacity: 15Gi
+  varVolumeStorageConfig:
+    storageClassName: longhorn
+    storageCapacity: 100Gi
+  volumes:
+    - name: defaults
+      configMap:
+        name: splunk-cluster-defaults
+  defaultsUrl: /tmp/defaults/default.yml
+---
+apiVersion: enterprise.splunk.com/v2
+kind: SearchHeadCluster
+metadata:
+  name: sh-dev
+  namespace: splunk-cluster-prod
+  finalizers:
+  - enterprise.splunk.com/delete-pvc
+spec:
+  clusterMasterRef:
+    name: cm-dev
+  replicas: 2
+  resources:
+    requests:
+      memory: "512Mi"
+      cpu: "0.1"
+    limits:
+      memory: "8Gi"
+      cpu: "4"
+  etcVolumeStorageConfig:
+    storageClassName: longhorn
+    storageCapacity: 15Gi
+  varVolumeStorageConfig:
+    storageClassName: longhorn
+    storageCapacity: 25Gi
+  volumes:
+    - name: defaults
+      configMap:
+        name: splunk-cluster-defaults
+  defaultsUrl: /tmp/defaults/default.yml

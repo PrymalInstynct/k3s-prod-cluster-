@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+    name: splunk-licenses
+    namespace: splunk-cluster-prod
+data:
+    enterprise.lic: ENC[AES256_GCM,data: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,iv:HCx6/9iFn5LpNySqtw65MUEx4JZ/RXYcBI2i3Ya2WkU=,tag:FAhbjyTSk4ueMBq2ALwQcg==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age1y30f7kpheak5cv3m9tetx73xpeswztagxqw8k8xz9m7005xgzqvqg43q0h
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSAzTWVkVzNtVXFOeFAzblhM
+            RnJGRHFEek5ZeS9KWHZlNERSVUJsbVB1Ykc4CjcrT3F4U1VEcnVoejhJK3ZtOCtV
+            ajZPSEVRbElKL3BzNWtLWXlTNWo0RTQKLS0tIE9ZRCtqbTNta0RYS1hMdU10cnRM
+            dE1kOXdMRnM0N1F3TmRvSTNkWlpXQ2sKNkHvS9arraXxbRYHxtt3yobN9vp1sDnf
+            s98+SzsCUjuHBTmupY2KudmIBgwRQBYtTlGlOUp68caPwdoI8moeZw==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2021-12-03T13:08:23Z"
+    mac: ENC[AES256_GCM,data:tmiANosR6jR0RD5Xs0EnQOVWZCmGlg6jqfOaDJGDDtJ1W8iIzfXiQpmu39WH9CNJAHPBL6ZsrrM5UTv0slPuzzGPAmyEfE8elVgbDr5sOP98x22WlRO11AJ9xaqh9vkytFGRTYA8QDeHyU1ENpaMGjg2CUNtdUohgswbg5z5NYk=,iv:NLeTss/29/Crb38MLhwiF/XmLlPf62MY6zBAxm9hVhQ=,tag:CkB6FtsbhDsnYIeo3p5klg==,type:str]
+    pgp: []
+    encrypted_regex: ^(data|stringData)$
+    version: 3.7.1

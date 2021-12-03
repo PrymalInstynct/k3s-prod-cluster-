@@ -25,73 +25,45 @@ spec:
       namespaceSelector:
         matchNames:
           - default
+          - media
           - networking
-      name: "you"
-      customApps:
-        - name: Some External Cluster Service
-          url: http://192.168.1.100:5000
-          icon: test-tube
+          - storage
+      name: "PrymalNet - Production"
+      # customApps:
+      #   - name: Some External Cluster Service
+      #     url: http://192.168.1.100:5000
+      #     icon: test-tube
       groups:
-        - name: Communicate
+        - name: Useful
           links:
-            - name: Discord
-              url: "https://discord.com"
+            - name: Github
+              url: "https://github.com/PrymalInstynct"
+            - name: Cloudflare
+              url: "https://cloudflare.com"
+            - name: A Cloud Guru
+              url: "https://acloudguru.com/#sign-in"
+        - name: Google
+          links:
             - name: Gmail
-              url: "https://gmail.com"
-            - name: Slack
-              url: "https://slack.com/signin"
-        - name: Cloud
-          links:
-            - name: Box
-              url: "https://box.com"
-            - name: Dropbox
-              url: "https://dropbox.com"
+              url: "https://mail.google.com"
             - name: Drive
               url: "https://drive.google.com"
-        - name: Design
-          links:
-            - name: Awwwards
-              url: "https://awwwards.com"
-            - name: Dribbble
-              url: "https://dribbble.com"
-            - name: Muz.li
-              url: "https://medium.muz.li/"
-        - name: Dev
-          links:
-            - name: Codepen
-              url: "https://codepen.io/"
-            - name: Devdocs
-              url: "https://devdocs.io"
-            - name: Devhints
-              url: "https://devhints.io"
-        - name: Lifestyle
-          links:
-            - name: Design Milk
-              url: "https://design-milk.com/category/interior-design/"
-            - name: Dwell
-              url: "https://www.dwell.com/"
-            - name: Freshome
-              url: "https://www.mymove.com/freshome/"
+            - name: Docs
+              url: "https://docs.google.com"
+            - name: Sheets
+              url: "https://drive.google.com"
+            - name: Domains
+              url: "https://domains.google.com"
         - name: Media
           links:
             - name: Spotify
-              url: "http://browse.spotify.com"
-            - name: Trakt
-              url: "http://trakt.tv"
+              url: "http://open.spotify.com"
             - name: YouTube
               url: "https://youtube.com/feed/subscriptions"
-        - name: Reading
+        - name: Tech News
           links:
-            - name: Instapaper
-              url: "https://www.instapaper.com/u"
-            - name: Medium
-              url: "http://medium.com"
-            - name: Reddit
-              url: "http://reddit.com"
-        - name: Tech
-          links:
-            - name: Hacker News
-              url: "https://news.ycombinator.com/"
+            - name: The Hacker News
+              url: "https://thehackernews.com"
             - name: The Verge
               url: "https://theverge.com/"
             - name: MIT Technology Review
@@ -105,6 +77,7 @@ spec:
           hajimari.io/enable: "true"
           hajimari.io/icon: "weather-sunset"
           traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+          traefik.ingress.kubernetes.io/router.middlewares: "networking-basic-auth@kubernetescrd"
         hosts:
           - host: "hajimari.${SECRET_DOMAIN}"
             paths:

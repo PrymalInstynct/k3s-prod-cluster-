@@ -1,0 +1,62 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: nfs-provisioner
+  namespace: storage
+spec:
+  interval: 5m
+  chart:
+    spec:
+      # renovate: registryUrl=https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner/
+      chart: nfs-subdir-external-provisioner
+      version: 4.0.14
+      sourceRef:
+        kind: HelmRepository
+        name: nfs-subdir-external-provisioner-charts
+        namespace: flux-system
+      interval: 5m
+  values:
+    image:
+      repository: k8s.gcr.io/sig-storage/nfs-subdir-external-provisioner
+      tag: v4.0.2
+      pullPolicy: IfNotPresent
+    imagePullSecrets: []
+    nfs:
+      server: 10.10.1.30
+      path: /volume1/kubernetes-dev
+      mountOptions:
+      volumeName: nfs-subdir-external-provisioner-root
+      reclaimPolicy: retain
+    storageClass:
+      create: true
+      defaultClass: true
+      name: nfs-client
+      allowVolumeExpansion: false
+      reclaimPolicy: Retain
+      archiveOnDelete: true
+      accessModes: ReadWriteOnce
+      volumeBindingMode: WaitForFirstConsumer
+      annotations: {}
+    leaderElection:
+      enabled: true
+    rbac:
+      enabled: false
+    podSecurityPolicy:
+      enabled: false
+    podAnnotations: {}
+    serviceAccount:
+      create: true
+      annotations: {}
+      name:
+    resources: {}
+    # limits:
+    #  cpu: 100m
+    #  memory: 128Mi
+    # requests:
+    #  cpu: 100m
+    #  memory: 128Mi
+    nodeSelector: {}
+    tolerations: []
+    affinity: {}
+    labels: {}
