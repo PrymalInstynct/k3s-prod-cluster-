@@ -4,4 +4,4 @@ kind: Kustomization
 resources:
   - local-path-provisioner
   - longhorn
-  - nfs-provisioner
+  # - nfs-provisioner
