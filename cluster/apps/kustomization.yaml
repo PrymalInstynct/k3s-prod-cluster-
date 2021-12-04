@@ -5,7 +5,7 @@ resources:
   - default
   - kube-system
   - media
-  - minecraft
+  # - minecraft
   - networking
   # - splunk-cluster
   # - splunk-standalone
