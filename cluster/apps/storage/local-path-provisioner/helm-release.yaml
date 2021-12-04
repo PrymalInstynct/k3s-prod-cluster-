@@ -5,7 +5,7 @@ metadata:
   name: local-path
   namespace: storage
 spec:
-  interval: 4m
+  interval: 5m
   chart:
     spec:
       # renovate: registryUrl=https://prymalinstynct.github.io/helm-charts
@@ -15,7 +15,7 @@ spec:
         kind: HelmRepository
         name: prymalinstynct-charts
         namespace: flux-system
-      interval: 4m
+      interval: 5m
   values:
     replicaCount: 1
 
