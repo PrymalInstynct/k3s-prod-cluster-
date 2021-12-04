@@ -5,7 +5,7 @@ metadata:
   name: longhorn
   namespace: storage
 spec:
-  interval: 5m
+  interval: 4m
   chart:
     spec:
       # renovate: registryUrl=https://charts.longhorn.io
@@ -15,7 +15,7 @@ spec:
         kind: HelmRepository
         name: longhorn-charts
         namespace: flux-system
-      interval: 5m
+      interval: 4m
   values:
     # Default values for longhorn.
     # This is a YAML-formatted file.

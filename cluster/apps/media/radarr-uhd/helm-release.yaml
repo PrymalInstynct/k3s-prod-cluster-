@@ -5,7 +5,7 @@ metadata:
   name: radarr-uhd
   namespace: media
 spec:
-  interval: 5m
+  interval: 4m
   dependsOn:
     - name: longhorn
       namespace: storage
@@ -18,7 +18,7 @@ spec:
         kind: HelmRepository
         name: k8s-at-home-charts
         namespace: flux-system
-      interval: 5m
+      interval: 4m
   values:
     image:
       repository: ghcr.io/k8s-at-home/radarr
