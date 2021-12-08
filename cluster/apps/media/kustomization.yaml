@@ -13,3 +13,5 @@ resources:
   - sonarr
   - sonarr-uhd
   - tautulli
+  - unpackerr
+  - unpacker-uhd

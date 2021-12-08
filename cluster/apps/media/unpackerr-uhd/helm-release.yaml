@@ -1,0 +1,60 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: unpackerr
+  namespace: media
+spec:
+  interval: 5m
+  dependsOn:
+    - name: longhorn
+      namespace: storage
+  chart:
+    spec:
+      # renovate: registryUrl=https://k8s-at-home.com/charts/
+      chart: unpackerr
+      version: 5.1.0
+      sourceRef:
+        kind: HelmRepository
+        name: k8s-at-home-charts
+        namespace: flux-system
+      interval: 5m
+  values:
+    image:
+      repository: golift/unpackerr
+      tag: 0.9.7
+    env:
+      TZ: "America/Denver"
+      # Sonarr Config
+      UN_SONARR_0_URL: http://sonarr-uhd:8989
+      UN_SONARR_0_API_KEY: ${SECRET_API_SONARR_UHD}
+      UN_SONARR_0_PATHS_0: /downloads
+      UN_SONARR_0_PROTOCOLS: torrent
+      UN_SONARR_0_TIMEOUT: 10s
+      UN_SONARR_0_DELETE_ORIG: false
+      UN_SONARR_0_DELETE_DELAY: 5m
+      # Radarr-UHD Config
+      UN_RADARR_0_URL: http://radarr-uhd:7878
+      UN_RADARR_0_API_KEY: ${SECRET_API_RADARR_UHD}
+      UN_RADARR_0_PATHS_0: /downloads
+      UN_RADARR_0_PROTOCOLS: torrent
+      UN_RADARR_0_TIMEOUT: 10s
+      UN_RADARR_0_DELETE_ORIG: false
+      UN_RADARR_0_DELETE_DELAY: 5m
+    podSecurityContext:
+      fsGroup: 0
+    persistence:
+      downloads:
+        enabled: true
+        type: custom
+        volumeSpec:
+          nfs:
+            server: "${NAS_ADDR}"
+            path: /volume1/data/media/downloads
+        mountPath: /downloads
+    resources:
+      requests:
+        memory: 250Mi
+        cpu: 500m
+      limits:
+        memory: 750Mi
