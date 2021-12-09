@@ -23,7 +23,7 @@ spec:
     image:
       repository: louislam/uptime-kuma
       pullPolicy: IfNotPresent
-      tag: 1.11.1
+      tag: 1.11.0
     podSecurityContext:
       fsGroup: 0
     ingress:
@@ -48,7 +48,6 @@ spec:
       data:
         enabled: true
         existingClaim: uptime-kuma-data-v1
-        mounthPath: /app
     resources:
       requests:
         memory: 250Mi
