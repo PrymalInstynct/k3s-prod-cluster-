@@ -44,10 +44,11 @@ spec:
           - hosts:
               - "uptime.${SECRET_DOMAIN}"
             secretName: uptime-kuma-tls
-    # persistence:
-    #   data:
-    #     enabled: true
-    #     existingClaim: uptime-kuma-data-v1
+    persistence:
+      data:
+        enabled: true
+        existingClaim: uptime-kuma-data-v1
+        mountPath: /app/data
     resources:
       requests:
         memory: 250Mi
