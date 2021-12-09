@@ -8,12 +8,12 @@ spec:
   interval: 5m
   chart:
     spec:
-      # renovate: registryUrl=https://prymalinstynct.github.io/helm-charts
+      # renovate: registryUrl=https://k8s-at-home.com/charts/
       chart: uptime-kuma
-      version: 1.0.3
+      version: 1.0.0
       sourceRef:
         kind: HelmRepository
-        name: prymalinstynct-charts
+        name: k8s-at-home-charts
         namespace: flux-system
       interval: 5m
   dependsOn:
@@ -23,7 +23,7 @@ spec:
     image:
       repository: louislam/uptime-kuma
       pullPolicy: IfNotPresent
-      tag: 1.11.0
+      tag: 1.11.1
     podSecurityContext:
       fsGroup: 0
     ingress:
@@ -45,9 +45,10 @@ spec:
               - "uptime.${SECRET_DOMAIN}"
             secretName: uptime-kuma-tls
     persistence:
-      config:
+      data:
         enabled: true
-        existingClaim: uptime-kuma-config-v1
+        existingClaim: uptime-kuma-data-v1
+        mounthPath: /app
     resources:
       requests:
         memory: 250Mi
