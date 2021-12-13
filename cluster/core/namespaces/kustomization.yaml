@@ -8,6 +8,7 @@ resources:
   - minecraft.yaml
   - monitoring.yaml
   - networking.yaml
+  - productivity.yaml
   - splunk-cluster.yaml
   - splunk-standalone.yaml
   - storage.yaml
