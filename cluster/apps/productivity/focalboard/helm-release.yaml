@@ -59,7 +59,7 @@ spec:
     # See the Administrator's Guide for config reference: https://www.focalboard.com/guide/admin/
     config: |
       {
-        "serverRoot": "http://localhost:8000",
+        "serverRoot": "https://focalboard.${SECRET_DOMAIN}",
         "port": 8000,
         "dbtype": "sqlite3",
         "dbconfig": "/data/focalboard.db",

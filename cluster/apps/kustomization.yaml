@@ -8,7 +8,7 @@ resources:
   - minecraft
   - monitoring
   - networking
-  - productivity
+  # - productivity
   # - splunk-cluster
   # - splunk-standalone
   - storage
