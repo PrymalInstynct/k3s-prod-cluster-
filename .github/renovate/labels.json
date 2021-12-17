@@ -1,0 +1,45 @@
+{
+    "packageRules": [
+      {
+        "matchUpdateTypes": [
+          "major"
+        ],
+        "labels": [
+          "dep/major"
+        ]
+      },
+      {
+        "matchUpdateTypes": [
+          "minor"
+        ],
+        "labels": [
+          "dep/minor"
+        ]
+      },
+      {
+        "matchUpdateTypes": [
+          "patch"
+        ],
+        "labels": [
+          "dep/patch"
+        ]
+      },
+      {
+        "matchDatasources": [
+          "helm"
+        ],
+        "labels": [
+          "renovate/helm"
+        ]
+      },
+      {
+        "matchDatasources": [
+          "docker"
+        ],
+        "labels": [
+          "renovate/image"
+        ]
+      }
+    ]
+  }
+  
