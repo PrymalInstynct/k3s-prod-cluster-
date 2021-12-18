@@ -306,3 +306,11 @@ If you plan on exposing your ingress to the world from your home. Checkout [our 
 ## :handshake:&nbsp; Thanks
 
 Big shout out to all the authors and contributors to the projects that we are using in this repository.
+
+## :point_right:&nbsp; Useful Commands
+
+Cleanup old replicasets
+`kubectl get all -A | grep replicaset.apps |  grep "0         0         0" | tr -s ' ' | cut -d ' ' -f 2 | xargs -I '{}' kubectl delete {} -n system-upgrade`
+
+Cleanup old PVCs
+`kubectl get pv | grep Released | cut -d ' ' -f 1 | xargs kubectl delete pv`
