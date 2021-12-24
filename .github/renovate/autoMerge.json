@@ -16,8 +16,16 @@
           "ghcr.io/k8s-at-home/prowlarr",
           "ghcr.io/k8s-at-home/radarr",
           "ghcr.io/k8s-at-home/sonarr",
-          "ghcr.io/k8s-at-home/lidar",
-          "ghcr.io/k8s-at-home/reader"
+          "ghcr.io/k8s-at-home/lidarr",
+          "ghcr.io/k8s-at-home/readarr",
+          "ghcr.io/k8s-at-home/tautulli",
+          "ghcr.io/k8s-at-home/unpackerr",
+          "ghcr.io/k8s-at-home/qbittorrent",
+          "itzg/minecraft-server",
+          "itzg/minecraft-proxy",
+          "louislam/uptime-kuma",
+          "mattermost/focalboard",
+          "ghcr.io/toboshii/hajimari"
         ]
       },
       {
@@ -32,7 +40,21 @@
           "patch"
         ],
         "matchPackageNames": [
-          "kube-prometheus-stack"
+          "kube-prometheus-stack",
+          "focalboard",
+          "plex",
+          "prowlarr",
+          "radarr",
+          "sonarr",
+          "lidarr",
+          "readarr",
+          "hajimari",
+          "qbittorrent",
+          "tautulli",
+          "unpackerr",
+          "minecraft-proxy",
+          "minecraft",
+          "uptime-kuma"
         ]
       }
     ]
