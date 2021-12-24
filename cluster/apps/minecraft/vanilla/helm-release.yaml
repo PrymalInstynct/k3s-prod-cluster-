@@ -20,8 +20,6 @@ spec:
     - name: nfs-provisioner
       namespace: storage
   values:
-    image: itzg/minecraft-server
-    imageTag: latest
     resources:
       requests:
         memory: 512Mi
