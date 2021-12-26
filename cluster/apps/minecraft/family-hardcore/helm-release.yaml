@@ -20,8 +20,6 @@ spec:
     - name: nfs-provisioner
       namespace: storage
   values:
-    image: itzg/minecraft-server
-    imageTag: latest
     resources:
       requests:
         memory: 512Mi
@@ -150,7 +148,7 @@ spec:
       # When levelType == FLAT or CUSTOMIZED, this can be used to further customize map generation.
       # ref: https://hub.docker.com/r/itzg/minecraft-server/
       generatorSettings:
-      worldSaveName: family-hardcore
+      worldSaveName: world
       # If set, this URL will be downloaded at startup and used as a starting point
       downloadWorldUrl:
       # force re-download of server file
@@ -236,7 +234,7 @@ spec:
       ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
       ##   GKE, AWS & OpenStack)
       ##
-      # storageClass: "-"
+      storageClass: longhorn
       dataDir:
         # Set this to false if you don't care to persist state between restarts.
         enabled: true
