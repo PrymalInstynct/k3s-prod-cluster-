@@ -5,7 +5,7 @@ metadata:
   name: minecraft-proxy
   namespace: minecraft
 spec:
-  interval: 4m
+  interval: 5m
   chart:
     spec:
       # renovate: registryUrl=https://itzg.github.io/minecraft-server-charts/
@@ -15,15 +15,15 @@ spec:
         kind: HelmRepository
         name: minecraft-server-charts
         namespace: flux-system
-      interval: 4m
+      interval: 5m
   dependsOn:
-    - name: nfs-provisioner
+    - name: longhorn
       namespace: storage
   values:
     resources:
       requests:
         memory: 512Mi
-        cpu: 500m
+        cpu: 600m
     # upgrade strategy type (e.g. Recreate or RollingUpdate)
     strategyType: Recreate
     nodeSelector: {}
@@ -33,7 +33,7 @@ spec:
       # Security context settings
       runAsUser: 1000
       runAsGroup: 1000
-      fsGroup: 2000
+      fsGroup: 1000
     # Most of these map to environment variables. See Minecraft for details:
     # https://hub.docker.com/r/itzg/docker-bungeecord/
     livenessProbe:
