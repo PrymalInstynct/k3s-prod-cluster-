@@ -23,7 +23,7 @@ spec:
     resources:
       requests:
         memory: 512Mi
-        cpu: 600m
+        cpu: 500m
     # upgrade strategy type (e.g. Recreate or RollingUpdate)
     strategyType: Recreate
     nodeSelector: {}
@@ -135,7 +135,7 @@ spec:
           restricted: false
         family-hardcore:
           motd: '&1Zimmerman Family Hardcore'
-          address: family-hardcore-minecraft:25565
+          address: family-hardcore-minecraft-minecraft:25565
           restricted: false
        listeners:
        - query_port: 25577
