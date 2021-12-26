@@ -29,10 +29,6 @@ spec:
     nodeSelector: {}
     tolerations: []
     affinity: {}
-    securityContext:
-      # Security context settings
-      runAsUser: 1000
-      runAsGroup: 1000
     # Most of these map to environment variables. See Minecraft for details:
     # https://hub.docker.com/r/itzg/docker-bungeecord/
     livenessProbe:
@@ -133,14 +129,14 @@ spec:
        log_commands: false
        online_mode: false
        servers:
-         lobby:
-           motd: '&1Zimmerman Family Lobby'
-           address: vanilla-minecraft-minecraft:25565
-           restricted: false
-          family-hardcore:
-            motd: '&1Zimmerman Family Hardcore'
-            address: family-hardcore-minecraft:25565
-            restricted: false
+        lobby:
+          motd: '&1Zimmerman Family Lobby'
+          address: vanilla-minecraft-minecraft:25565
+          restricted: false
+        family-hardcore:
+          motd: '&1Zimmerman Family Hardcore'
+          address: family-hardcore-minecraft:25565
+          restricted: false
        listeners:
        - query_port: 25577
          motd: '&1ZimZamFam Bungee server'
