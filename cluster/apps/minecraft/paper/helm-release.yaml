@@ -150,7 +150,7 @@ spec:
       # force re-download of server file
       forceReDownload: false
       # If set, the modpack at this URL will be downloaded at startup
-      downloadModpackUrl: http://10.10.1.30:7777/minecraft/EssentialsX-2.19.2.jar,http://10.10.1.30:7777/minecraft/LuckPerms-Bukkit-5.3.89.jar,http://10.10.1.30:7777/minecraft/craftbook-3.10.5.jar,http://10.10.1.30:7777/minecraft/worldedit-bukkit-7.2.8.jar,http://10.10.1.30:7777/minecraft/worldguard-bukkit-7.0.6-dist.jar
+      downloadModpackUrl: http://10.10.1.30:7777/minecraft/
       # If true, old versions of downloaded mods will be replaced with new ones from downloadModpackUrl
       removeOldMods: false
       # Check accounts against Minecraft account service.
