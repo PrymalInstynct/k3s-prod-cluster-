@@ -136,7 +136,7 @@ spec:
       # One of: creative, survival, adventure, spectator
       gameMode: survival
       # Message of the Day
-      motd: "Welcome to The Lobby!"
+      motd: "Welcome to The Paper!"
       # If true, enable player-vs-player damage.
       pvp: true
       # One of: DEFAULT, FLAT, LARGEBIOMES, AMPLIFIED, CUSTOMIZED
@@ -154,7 +154,7 @@ spec:
       # If true, old versions of downloaded mods will be replaced with new ones from downloadModpackUrl
       removeOldMods: false
       # Check accounts against Minecraft account service.
-      onlineMode: false
+      onlineMode: true
       # If you adjust this, you may need to adjust resources.requests above to match.
       memory: 1024M
       # General JVM options to be passed to the Minecraft server invocation
