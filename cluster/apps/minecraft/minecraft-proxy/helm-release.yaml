@@ -114,7 +114,7 @@ spec:
       # This can be set to the contents of your config file (only works with yaml currently)
       config: |
        player_limit: -1
-       ip_forward: false
+       ip_forward: true
        permissions:
          default:
          - bungeecord.command.server
@@ -127,7 +127,7 @@ spec:
        timeout: 30000
        log_pings: true
        log_commands: false
-       online_mode: false
+       online_mode: true
        servers:
         lobby:
           motd: '&1Zimmerman Family Lobby'
