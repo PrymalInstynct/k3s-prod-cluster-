@@ -2,7 +2,7 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: lobby
+  name: paper
   namespace: minecraft
 spec:
   interval: 5m
@@ -76,7 +76,7 @@ spec:
       # One of: LATEST, SNAPSHOT, or a specific version (ie: "1.7.9").
       version: "LATEST"
       # This can be one of "VANILLA", "FORGE", "SPIGOT", "BUKKIT", "PAPER", "FTBA", "SPONGEVANILLA", "CURSEFORGE"
-      type: "BUKKIT"
+      type: "PAPER"
       # If type is set to FORGE, this sets the version; this is ignored if forgeInstallerUrl is set
       forgeVersion:
       # If type is set to SPONGEVANILLA, this sets the version
@@ -150,7 +150,7 @@ spec:
       # force re-download of server file
       forceReDownload: false
       # If set, the modpack at this URL will be downloaded at startup
-      downloadModpackUrl: http://10.10.1.30:7777/worldedit-bukkit-7.2.8.jar
+      downloadModpackUrl: http://10.10.1.30:7777/minecraft/EssentialsX-2.19.2.jar,http://10.10.1.30:7777/minecraft/LuckPerms-Bukkit-5.3.89.jar,http://10.10.1.30:7777/minecraft/craftbook-3.10.5.jar,http://10.10.1.30:7777/minecraft/worldedit-bukkit-7.2.8.jar,http://10.10.1.30:7777/minecraft/worldguard-bukkit-7.0.6-dist.jar
       # If true, old versions of downloaded mods will be replaced with new ones from downloadModpackUrl
       removeOldMods: false
       # Check accounts against Minecraft account service.
@@ -230,7 +230,7 @@ spec:
       ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
       ##   GKE, AWS & OpenStack)
       ##
-      storageClass: longhorn-retain
+      storageClass: longhorn
       dataDir:
         # Set this to false if you don't care to persist state between restarts.
         enabled: true
