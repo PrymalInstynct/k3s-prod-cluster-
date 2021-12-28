@@ -154,9 +154,9 @@ spec:
            pvp.md-5.net: pvp
          max_players: 1
          tab_size: 60
-         ping_passthrough: false
+         ping_passthrough: true
          force_default_server: false
-         proxy_protocol: false
+         proxy_protocol: true
        disabled_commands:
        - disabledcommandhere
        network_compression_threshold: 256
