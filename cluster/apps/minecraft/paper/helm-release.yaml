@@ -130,7 +130,7 @@ spec:
       # Determines if villagers will be spawned.
       spawnNPCs: true
       # Max view distance (in chunks).
-      viewDistance: 10
+      viewDistance: 12
       # Define this if you want a specific map generation seed.
       levelSeed:
       # One of: creative, survival, adventure, spectator
