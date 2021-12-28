@@ -127,7 +127,7 @@ spec:
        timeout: 30000
        log_pings: true
        log_commands: false
-       online_mode: true
+       online_mode: false
        servers:
         lobby:
           motd: '&1Zimmerman Family Lobby'
@@ -154,7 +154,7 @@ spec:
            pvp.md-5.net: pvp
          max_players: 1
          tab_size: 60
-         ping_passthrough: true
+         ping_passthrough: false
          force_default_server: true
          proxy_protocol: false
        disabled_commands:
