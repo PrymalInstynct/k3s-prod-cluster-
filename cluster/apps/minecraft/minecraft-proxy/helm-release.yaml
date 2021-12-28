@@ -155,8 +155,8 @@ spec:
          max_players: 1
          tab_size: 60
          ping_passthrough: true
-         force_default_server: false
-         proxy_protocol: true
+         force_default_server: true
+         proxy_protocol: false
        disabled_commands:
        - disabledcommandhere
        network_compression_threshold: 256
