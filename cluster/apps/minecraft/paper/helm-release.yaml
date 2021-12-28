@@ -150,7 +150,7 @@ spec:
       # force re-download of server file
       forceReDownload: false
       # If set, the modpack at this URL will be downloaded at startup
-      downloadModpackUrl: http://10.10.1.30:7777/minecraft/
+      downloadModpackUrl: http://10.10.1.30:7777/minecraft/paper-test.zip
       # If true, old versions of downloaded mods will be replaced with new ones from downloadModpackUrl
       removeOldMods: false
       # Check accounts against Minecraft account service.

@@ -4,6 +4,6 @@ kind: Kustomization
 resources:
   - family-hardcore
   - minecraft-proxy
-  # - paper
+  - paper
   - vanilla
   - busybox
