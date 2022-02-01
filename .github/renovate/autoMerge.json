@@ -21,11 +21,13 @@
           "ghcr.io/k8s-at-home/tautulli",
           "ghcr.io/k8s-at-home/unpackerr",
           "ghcr.io/k8s-at-home/qbittorrent",
+          "ghcr.io/k8s-at-home/sabnzbd",
           "itzg/minecraft-server",
           "itzg/minecraft-proxy",
           "louislam/uptime-kuma",
           "mattermost/focalboard",
-          "ghcr.io/toboshii/hajimari"
+          "ghcr.io/toboshii/hajimari",
+          "ghcr.io/k8s-at-home/kubectl"
         ]
       },
       {
@@ -54,7 +56,8 @@
           "unpackerr",
           "minecraft-proxy",
           "minecraft",
-          "uptime-kuma"
+          "uptime-kuma",
+          "nfs-subdir-external-provisioner"
         ]
       }
     ]
