@@ -62,6 +62,21 @@
           "metrics-server",
           "cert-manager"
         ]
+      },
+      {
+        "matchDatasources": [
+          "terraform-provider"
+        ],
+        "automerge": true,
+        "automergeType": "branch",
+        "requiredStatusChecks": null,
+        "matchUpdateTypes": [
+          "minor",
+          "patch"
+        ],
+        "matchPackageNames": [
+          "cloudflare"
+        ]
       }
     ]
   }
