@@ -6,7 +6,7 @@ resources:
   - kube-system
   - media
   # - minecraft
-  - monitoring
+  # - monitoring
   - networking
   # - productivity
   # - splunk-cluster
